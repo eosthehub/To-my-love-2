@@ -1,50 +1,18 @@
-const imageInput = document.getElementById('imageInput');
-const customMessage = document.getElementById('customMessage');
-const generateButton = document.getElementById('generateButton');
-const canvas = document.getElementById('pixelCanvas');
-const ctx = canvas.getContext('2d');
-const messageParagraph = document.getElementById('message');
+// Lista de palavras-chave e links
+const keywords = {
+    "textos": "https://eosthehub.github.io/To-my-love/Central.html",
+    "jogos": "https://eosthehub.github.io/To-my-love/jogos.html",
+    "spotify": "https://open.spotify.com/playlist/1bN2og7ffd4otRABJQakPx?si=E0WXqAb6TECegd8VkS3ZQQ&pi=RohRmneIR9qNa",
+};
 
-generateButton.addEventListener('click', () => {
-    const file = imageInput.files[0];
-    const message = customMessage.value;
+// Lógica de pesquisa
+document.getElementById("search-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const query = document.getElementById("search-input").value.toLowerCase();
 
-    if (file && message) {
-        const img = new Image();
-        img.src = URL.createObjectURL(file);
-
-        img.onload = () => {
-            const pixelSize = 10;  // Define o tamanho dos pixels
-            const scale = 0.1;  // Reduz a imagem para criar o efeito de pixel art
-
-            canvas.width = img.width * scale;
-            canvas.height = img.height * scale;
-
-            // Desenha a imagem em uma escala reduzida
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-            // Obtém os dados da imagem e redimensiona para o tamanho original
-            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            canvas.width = img.width;
-            canvas.height = img.height;
-
-            // Desenha os pixels ampliados
-            for (let y = 0; y < imgData.height; y++) {
-                for (let x = 0; x < imgData.width; x++) {
-                    const index = (y * imgData.width + x) * 4;
-                    const r = imgData.data[index];
-                    const g = imgData.data[index + 1];
-                    const b = imgData.data[index + 2];
-
-                    ctx.fillStyle = `rgb(${r},${g},${b})`;
-                    ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
-                }
-            }
-
-            // Exibe a mensagem personalizada
-            messageParagraph.textContent = message;
-        };
+    if (keywords[query]) {
+        window.location.href = keywords[query];
     } else {
-        alert('Please upload an image and enter a message.');
+        alert("Nenhum resultado encontrado para: " + query);
     }
 });
