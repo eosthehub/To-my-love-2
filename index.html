@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Nabri$a</title>
+    <title>Nabri$a</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <!-- Cabeçalho com Logo -->
+    <!-- Logo no topo -->
     <header class="search-header">
         <img src="nabrisa.png" alt="Logo do Site" class="logo">
     </header>
 
-    <!-- Área de Pesquisa -->
+    <!-- Área de pesquisa -->
     <section class="search-area">
-        <input type="text" id="search-input" placeholder="Digite algo para pesquisar..." />
-        <button id="search-button">Pesquisar</button>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Pesquise aqui...">
+            <button type="submit">Pesquisar</button>
 <p> Use palavras chaves referentes ao site para pesquisar</p>
+        </form>
     </section>
 
-    <!-- Botões com Ícones -->
+    <!-- Botões com ícones -->
     <section class="button-area">
         <button class="icon-button" onclick="redirect('https://www.google.com')">
             <img src="google-icon.png" alt="Google"> Google
