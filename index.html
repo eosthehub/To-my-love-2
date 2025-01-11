@@ -4,17 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nabri$a</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <img src="nabrisa.png" alt="Logo" class="logo">
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="Pesquise aqui..." required>
-            <button type="submit">Pesquisar</button>
+    <header class="search-header">
+        <h1>Pesquise ou Navegue</h1>
+    </header>
+
+    <!-- Área de Pesquisa -->
+    <section class="search-area">
+        <input type="text" id="search-input" placeholder="Digite algo para pesquisar..." />
+        <button id="search-button">Pesquisar</button>
 <p> Use palavras chaves referentes ao site para pesquisar</p>
-        </form>
-    </div>
-    <script src="script.js"></script>
+    </section>
+    <!-- Botões com Ícones -->
+    <section class="button-area">
+        <button class="icon-button" onclick="redirect('https://www.google.com')">
+            <img src="google-icon.png" alt="Google"> Google
+        </button>
+        <button class="icon-button" onclick="redirect('https://www.youtube.com')">
+            <img src="youtube-icon.png" alt="YouTube"> YouTube
+        </button>
+        <button class="icon-button" onclick="redirect('https://www.ibmr.br')">
+            <img src="school-icon.png" alt="IBMR"> Faculdade IBMR
+        </button>
+        <button class="icon-button" onclick="redirect('https://www.sebrae.com.br')">
+            <img src="business-icon.png" alt="Sebrae"> Sebrae
+        </button>
+    </section>
 </body>
-</html>>
+</html>
