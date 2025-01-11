@@ -3,11 +3,13 @@ function redirect(url) {
     window.location.href = url;
 }
 
-// Área de pesquisa funcional
-document.getElementById("search-button").addEventListener("click", function () {
+// Função para lidar com a pesquisa
+document.getElementById("search-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+
     const query = document.getElementById("search-input").value.toLowerCase().trim();
 
-    // Redirecionamento com palavras-chave
+    // Redirecionamento com palavras-chave específicas
     const keywords = {
                 "textos": "https://eosthehub.github.io/To-my-love/Central.html",
     "jogos": "https://eosthehub.github.io/To-my-love/jogos.html",
