@@ -3,7 +3,7 @@ const keywords = {
         "textos": "https://eosthehub.github.io/To-my-love/Central.html",
     "jogos": "https://eosthehub.github.io/To-my-love/jogos.html",
     "spotify": "https://open.spotify.com/playlist/1bN2og7ffd4otRABJQakPx?si=E0WXqAb6TECegd8VkS3ZQQ&pi=RohRmneIR9qNa",        
-    "Netflix": "https://eosthehub.github.io/To-my-love/animacao.html",  
+    "netflix": "https://eosthehub.github.io/To-my-love/animacao.html",  
     "letra": "https://eosthehub.github.io/To-my-love/musica.html",  
     "fotos": "https://eosthehub.github.io/To-my-love/password.html",
     "nudes": "https://eosthehub.github.io/To-my-love/password.html",  
