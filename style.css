@@ -7,9 +7,15 @@ body {
     padding: 20px;
 }
 
-/* Cabeçalho */
+/* Cabeçalho com Logo */
 .search-header {
     margin-bottom: 20px;
+}
+
+.search-header .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .search-header h1 {
