@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartinhas</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; }
+        #map { width: 100%; height: 100vh; }
+        .popup-img { width: 200px; height: auto; display: block; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-providers"></script>
+    <script>
+        var map = L.map('map').setView([20, 0], 2); // Centraliza o mapa mundial
+
+        // Adiciona um mapa base
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Adiciona todos os países do mundo com nome no pop-up
+        fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    onEachFeature: function (feature, layer) {
+                        layer.bindPopup(`<b>${feature.properties.name}</b>`);
+                    },
+                    style: {
+                        color: "#3388ff",
+                        weight: 1,
+                        fillOpacity: 0.2
+                    }
+                }).addTo(map);
+            });
+
+        // Estados do Brasil com imagens
+        var estadosBrasil = [
+            { name: "Acre", lat: -9.0238, lon: -70.8120, img: "img/acre.jpg" },
+            { name: "Alagoas", lat: -9.5713, lon: -36.7819, img: "img/alagoas.jpg" },
+            { name: "Amapá", lat: 0.9020, lon: -52.0030, img: "img/amapa.jpg" },
+            { name: "Amazonas", lat: -3.4168, lon: -65.8561, img: "img/amazonas.jpg" },
+            { name: "Bahia", lat: -12.5797, lon: -41.7007, img: "img/bahia.jpg" },
+            { name: "Ceará", lat: -5.4984, lon: -39.3206, img: "img/ceara.jpg" },
+            { name: "Distrito Federal", lat: -15.8267, lon: -47.9218, img: "img/df.jpg" },
+            { name: "Espírito Santo", lat: -19.1834, lon: -40.3089, img: "img/es.jpg" },
+            { name: "Goiás", lat: -15.8270, lon: -49.8362, img: "img/goias.jpg" },
+            { name: "Maranhão", lat: -4.9609, lon: -45.2744, img: "img/maranhao.jpg" },
+            { name: "Mato Grosso", lat: -12.6819, lon: -56.9211, img: "img/mt.jpg" },
+            { name: "Mato Grosso do Sul", lat: -20.7722, lon: -54.7852, img: "img/ms.jpg" },
+            { name: "Minas Gerais", lat: -18.5122, lon: -44.5550, img: "img/mg.jpg" },
+            { name: "Pará", lat: -3.4168, lon: -52.2159, img: "img/para.jpg" },
+            { name: "Paraíba", lat: -7.2399, lon: -36.7819, img: "img/paraiba.jpg" },
+            { name: "Paraná", lat: -25.2521, lon: -52.0215, img: "img/parana.jpg" },
+            { name: "Pernambuco", lat: -8.8137, lon: -36.9541, img: "img/pernambuco.jpg" },
+            { name: "Piauí", lat: -7.7183, lon: -42.7289, img: "img/piaui.jpg" },
+            { name: "Rio de Janeiro", lat: -22.9068, lon: -43.1729, img: "img/rj.jpg" },
+            { name: "Rio Grande do Norte", lat: -5.7945, lon: -36.9541, img: "img/rn.jpg" },
+            { name: "Rio Grande do Sul", lat: -30.0346, lon: -51.2177, img: "img/rs.jpg" },
+            { name: "Rondônia", lat: -10.8312, lon: -63.3212, img: "img/rondonia.jpg" },
+            { name: "Roraima", lat: 2.7376, lon: -62.0751, img: "img/roraima.jpg" },
+            { name: "Santa Catarina", lat: -27.2423, lon: -50.2189, img: "img/sc.jpg" },
+            { name: "São Paulo", lat: -23.5505, lon: -46.6333, img: "img/sp.jpg" },
+            { name: "Sergipe", lat: -10.5741, lon: -37.3857, img: "img/sergipe.jpg" },
+            { name: "Tocantins", lat: -10.1753, lon: -48.2982, img: "img/tocantins.jpg" }
+        ];
+
+        // Adiciona os marcadores dos estados no mapa
+        estadosBrasil.forEach(function(estado) {
+            L.marker([estado.lat, estado.lon]).addTo(map)
+                .bindPopup(`<b>${estado.name}</b><br><img src="${estado.img}" class="popup-img">`);
+        });
+    </script>
+</body>
+</html>
