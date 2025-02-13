@@ -17,7 +17,8 @@ document.getElementById("search-form").addEventListener("submit", function (even
     "videos": "https://eosthehub.github.io/To-my-love/animacao.html",    
     "letra": "https://eosthehub.github.io/To-my-love/musica.html",  
     "fotos": "https://eosthehub.github.io/To-my-love/password.html",
-    "nudes": "https://eosthehub.github.io/To-my-love/password.html",  
+    "nudes": "https://eosthehub.github.io/To-my-love/password.html",
+    "mapa": "https://eosthehub.github.io/To-my-love-2/cartinhas",  
     "buceta": "https://eosthehub.github.io/To-my-love/password.html",
     };
 
